@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
+import config from '../config/config'
 import Carousel from './Carousel'
 import Genres from './Genres'
 import Card2 from './Card2'
@@ -14,7 +15,7 @@ const Home = () => {
     const jwt = localStorage.getItem('jwt')
 
     try {
-      const response = await fetch(`https://flixdemand-1.onrender.com/api/movies?genreId=${genreId}`, {
+      const response = await fetch(`${config.hostUrl}/api/movies?genreId=${genreId}`, {
         method: "GET",
         headers: {
           'x-auth-token': jwt

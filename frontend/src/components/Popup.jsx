@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { BiCameraMovie } from "react-icons/bi";
 import { SiTicktick } from "react-icons/si";
+import config from '../config/config';
 
 const Popup = ({ movieId, setPopup }) => {
   const [movie, setMovie] = useState(null)
@@ -13,7 +14,7 @@ const Popup = ({ movieId, setPopup }) => {
     const jwt = localStorage.getItem('jwt')
     try {
       console.log(movieId)
-      const response = await fetch(`https://flixdemand-1.onrender.com/api/movies/${movieId}`, {
+      const response = await fetch(`${config.hostUrl}/api/movies/${movieId}`, {
         method: "GET",
         headers: {
           'x-auth-token': jwt
@@ -31,7 +32,6 @@ const Popup = ({ movieId, setPopup }) => {
   useEffect(() => {
     if (movieId) {
       getMovie()
-      console.log(movie)
     }
   }, [movieId])
 
@@ -61,7 +61,7 @@ const Popup = ({ movieId, setPopup }) => {
     const userId = localStorage.getItem("_id")
     console.log(userId, movieId)
     try {
-      const response = await fetch('https://flixdemand-1.onrender.com/api/rentals', {
+      const response = await fetch(`${config.hostUrl}/api/rentals`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',

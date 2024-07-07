@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
+import config from '../config/config'
 
 const Myinfo = () => {
     const [info, setInfo] = useState(null)
     async function getInfo() {
         const jwt = localStorage.getItem('jwt')
         try {
-            const response = await fetch('https://flixdemand-1.onrender.com/api/users/me', {
+            const response = await fetch(`${config.hostUrl}/api/users/me`, {
                 method: "GET",
                 headers: {
                     'x-auth-token': jwt

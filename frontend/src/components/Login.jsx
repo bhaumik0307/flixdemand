@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import config from '../config/config'
 import { useNavigate } from 'react-router-dom'
 
 const Login = ({ setIsAuthenticated }) => {
@@ -22,7 +23,7 @@ const Login = ({ setIsAuthenticated }) => {
     e.preventDefault()
 
     try {
-      const response = await fetch('https://flixdemand-1.onrender.com/api/auth', {
+      const response = await fetch(`${config.hostUrl}/api/auth`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
