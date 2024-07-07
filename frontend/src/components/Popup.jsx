@@ -5,6 +5,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { BiCameraMovie } from "react-icons/bi";
 import { SiTicktick } from "react-icons/si";
 import config from '../config/config';
+import Spinner from './Spinner';
 
 const Popup = ({ movieId, setPopup }) => {
   const [movie, setMovie] = useState(null)
@@ -128,7 +129,7 @@ const Popup = ({ movieId, setPopup }) => {
           </div>
         </div>
 
-      ) : (<p>Loading...</p>)}
+      ) : (<div>Loading...</div>)}
       <button
         onClick={handleCross}
         className='absolute top-[-50px] right-[-50px]'

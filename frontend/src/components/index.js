@@ -8,5 +8,6 @@ import Main from './Main'
 import Myrentals from './Myrentals'
 import Myinfo from './Myinfo'
 import Footer from './Footer'
+import Spinner from './Spinner'
 
-export {Home, Carousel, Navbar, Genres, Login, Signup, Main, Myrentals, Myinfo, Footer}
+export {Home, Carousel, Navbar, Genres, Login, Signup, Main, Myrentals, Myinfo, Footer, Spinner}

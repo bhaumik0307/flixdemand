@@ -24,7 +24,6 @@ const Home = () => {
       if (!response.ok) throw new Error('cannot fetch movies')
 
       const data = await response.json()
-      console.log(data)
       setMovies(data)
       return data
 

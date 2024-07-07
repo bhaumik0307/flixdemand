@@ -2,7 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
-const Card1 = ({title, url, year, genres, starRating}) => {
+const Card1 = ({title, url, year, genre, starRating}) => {
   const yellowStars = parseInt(starRating / 2)
   const whiteStars = 5 - yellowStars
   const stars = []
@@ -20,7 +20,7 @@ const Card1 = ({title, url, year, genres, starRating}) => {
           <h1 className='text-lg'>{title}</h1>
         </div>
         <div className='h-[40px]'>
-          <p>{year} &#x2022; {genres}</p>
+          <p>{year} &#x2022; {genre.name}</p>
         </div>
         <div className='mt-3'>
             <p>{starRating} {stars}</p>
