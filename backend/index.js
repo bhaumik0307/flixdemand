@@ -24,6 +24,9 @@ app.use(cors({
 }))
 
 app.use(express.json())
+app.get('/', (req, res) => {
+    res.send('app is running')
+})
 app.use('/api/genres', genres)
 app.use('/api/movies', movies)
 app.use('/api/rentals', rentals)
