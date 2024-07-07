@@ -15,7 +15,7 @@ if(!config.get('jwtPrivateKey')){
 
 }
 
-mongoose.connect('mongodb://localhost/movierent')
+mongoose.connect(`mongodb+srv://cbhaumik08:${config.get('dbPassword')}@cluster0.fpfx96i.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`)
 .then(() => { console.log('connected to database')})
 .catch((err) => console.log('something failed'))
 
