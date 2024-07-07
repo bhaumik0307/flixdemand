@@ -7,7 +7,7 @@ const Myrentals = () => {
         const userId = localStorage.getItem('_id')
         const jwt = localStorage.getItem('jwt')
         try {
-            const response = await fetch(`http://localhost:3000/api/rentals?userId=${userId}`, {
+            const response = await fetch(`https://flixdemand-1.onrender.com/api/rentals?userId=${userId}`, {
                 methos: "GET",
                 headers: {
                     'x-auth-token': jwt

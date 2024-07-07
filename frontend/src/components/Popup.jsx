@@ -13,7 +13,7 @@ const Popup = ({ movieId, setPopup }) => {
     const jwt = localStorage.getItem('jwt')
     try {
       console.log(movieId)
-      const response = await fetch(`http://localhost:3000/api/movies/${movieId}`, {
+      const response = await fetch(`https://flixdemand-1.onrender.com/api/movies/${movieId}`, {
         method: "GET",
         headers: {
           'x-auth-token': jwt
@@ -61,7 +61,7 @@ const Popup = ({ movieId, setPopup }) => {
     const userId = localStorage.getItem("_id")
     console.log(userId, movieId)
     try {
-      const response = await fetch('http://localhost:3000/api/rentals', {
+      const response = await fetch('https://flixdemand-1.onrender.com/api/rentals', {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',

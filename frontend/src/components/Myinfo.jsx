@@ -5,7 +5,7 @@ const Myinfo = () => {
     async function getInfo() {
         const jwt = localStorage.getItem('jwt')
         try {
-            const response = await fetch('http://localhost:3000/api/users/me', {
+            const response = await fetch('https://flixdemand-1.onrender.com/api/users/me', {
                 method: "GET",
                 headers: {
                     'x-auth-token': jwt

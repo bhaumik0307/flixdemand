@@ -8,7 +8,7 @@ const Genres = ({ movies, getMovies, handleCardClick }) => {
   async function getResponse () {
     const jwt = localStorage.getItem('jwt')
     try {
-      const response = await fetch('http://localhost:3000/api/genres', {
+      const response = await fetch('https://flixdemand-1.onrender.com/api/genres', {
         method: "GET",
         headers: {
           'x-auth-token': jwt
