@@ -16,8 +16,8 @@ if(!config.get('jwtPrivateKey')){
 }
 
 mongoose.connect(`mongodb+srv://cbhaumik08:${config.get('dbPassword')}@cluster0.fpfx96i.mongodb.net/flixdemand?retryWrites=true&w=majority&appName=Cluster0`)
-.then(() => { console.log('connected to database')})
-.catch((err) => console.log('something failed'))
+.then(() => console.log('connected to database'))
+.catch((err) => console.log('could not connect to database'))
 
 app.use(cors({
     exposedHeaders: ['x-auth-token']
