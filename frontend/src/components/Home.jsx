@@ -43,15 +43,15 @@ const Home = () => {
   }
 
   return (
-    <div className={`relative transition-all`}>
-      <div className={`flex w-full`}>
-        <div className='w-[77%] bg-[#111111] flex flex-col items-center'>
+    <div className='relative transition-all'>
+      <div className='flex flex-col md:flex-row w-full'>
+        <div className='md:w-[77%] w-full bg-[#111111] flex flex-col items-center'>
 
-          <div className='w-[1000px] mb-6 mt-10'>
+          <div className='w-full md:w-[1000px] mb-6 mt-10'>
             <Carousel />
           </div>
 
-          <div id="movies" className='flex flex-col w-full justify-start py-5 text-white pl-10'>
+          <div id="movies" className='flex flex-col w-full justify-start py-5 text-white px-4 md:pl-10'>
             <h1 className='text-2xl font-semibold'>Recommended</h1>
             <div className='flex py-10 flex-wrap'>
               {movies.map(({ _id, starRating, year, title, url }) => (

@@ -55,11 +55,11 @@ const Login = ({ setIsAuthenticated }) => {
       <div className='absolute inset-0 bg-black bg-opacity-50'></div>
       <div className='relative z-10 flex flex-col w-full h-full'>
         <div className='w-full h-[17%]'>
-          <img className='w-40 h-12 mt-7 ml-40' src='/logo/logo1.jpg' alt="" />
-
+          <img className='h-12 mt-7 md:ml-40 xs:ml-10' src='/logo/logo1.jpg' alt="" />
+{/* 360px */}
         </div>
         <div className='w-full h-full flex justify-center relative'>
-          <div className='w-[30%] absolute bottom-0 h-full bg-black bg-opacity-75 rounded-lg flex flex-col px-16 pt-10'>
+          <div className='lg:w-[30%] md:w-[60%] xs:w-[90%] absolute bottom-0 h-full bg-black bg-opacity-75 rounded-lg flex flex-col lg:px-16 xs:px-8 pt-10'>
             <h1 className='text-white text-3xl font-semibold mb-7'>Sign in</h1>
             <form onSubmit={handleSubmit} className='flex flex-col'>
               <input
@@ -87,7 +87,7 @@ const Login = ({ setIsAuthenticated }) => {
                 className='bg-red-700 rounded-md text-white text-lg h-12 mb-10 active:scale-95'
               >Sign In</button>
             </form>
-            <div className='flex text-lg'>
+            <div className='flex lg:text-lg xs:text-base'>
               <p className='text-gray-400 mr-2'>Don't have an account? </p>
               <button
                 onClick={() => navigate('/signup')}
