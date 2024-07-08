@@ -1,10 +1,9 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import config from '../config/config'
 import Carousel from './Carousel'
 import Genres from './Genres'
 import Card2 from './Card2'
 import Popup from './Popup'
-
 
 const Home = () => {
   const [movies, setMovies] = useState([])
@@ -43,31 +42,29 @@ const Home = () => {
   }
 
   return (
-    <div className='relative transition-all'>
-      <div className='flex flex-col md:flex-row w-full'>
+    <div className={`relative transition-all`}>
+      <div className={`flex flex-col md:flex-row w-full`}>
         <div className='md:w-[77%] w-full bg-[#111111] flex flex-col items-center'>
 
           <div className='w-full md:w-[1000px] mb-6 mt-10'>
             <Carousel />
           </div>
 
-          <div id="movies" className='flex flex-col w-full justify-start py-5 text-white px-4 md:pl-10'>
+          <div id="movies" className='flex flex-col w-full justify-start py-5 text-white px-4 md:px-10'>
             <h1 className='text-2xl font-semibold'>Recommended</h1>
-            <div className='flex py-10 flex-wrap'>
+            <div className='flex py-10 flex-wrap justify-center'>
               {movies.map(({ _id, starRating, year, title, url }) => (
                 <div
                   key={_id}
-                  className='hover:cursor-pointer active:scale-95'
+                  className='hover:cursor-pointer active:scale-95 m-2'
                   onClick={() => handleCardClick(_id)}
                 >
                   <Card2
-
                     movieId={_id}
                     title={title}
                     rating={starRating}
                     year={year}
                     url={url}
-
                   />
                 </div>
               ))}
@@ -75,7 +72,7 @@ const Home = () => {
           </div>
 
         </div>
-        <div className='w-[23%]'>
+        <div className='md:w-[23%] w-full bg-[#222222] flex justify-center'>
           <Genres movies={movies} getMovies={getMovies} handleCardClick={handleCardClick} />
         </div>
       </div>

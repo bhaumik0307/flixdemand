@@ -84,59 +84,56 @@ const Popup = ({ movieId, setPopup }) => {
   }
 
   return (
-    <div className='fixed bottom-0 left-[200px] bg-[#313131] w-[75%] h-[85%] rounded-2xl z-2'>
-      {movie ? (
-        <div className='flex w-full px-10 my-10'>
-          <img className='w-[600px] h-[500px] rounded-3xl shadow-xl' src={movie.url} alt="" />
-          <div className='flex flex-col w-full px-14 text-white'>
-            <div className='flex flex-col justify-start items-center w-full h-[50px] mb-6'>
-              <h1 className='text-5xl text-gray-300 font-semibold font-mono'>{movie.title}</h1>
-            </div>
-            <div className='font-mono mb-5'>
-              <p className='text-xl mb-2'><span className='text-red-600 font-semibold'>Genre:</span> {movie.genre.name}</p>
-              <p className='text-xl mb-2'><span className='text-red-600 font-semibold'>Year:</span> {movie.year}</p>
-              <p className='text-xl mb-2'><span className='text-red-600 font-semibold'>Rating:</span> {movie.starRating} { setStar() }</p>
-              <p className='text-xl mb-2'><span className='text-red-600 font-semibold'>Description:</span> <br/>Lorem ipsum dolor, sit amet 
-              consectetur adipisicing elit. Dolor obcaecati error optio sunt, illo in, 
-              odio magnam consectetur dicta fugit animi tempora ipsa voluptatum? Lorem 
-              ipsum dolor sit amet consectetur adipisicing elit.</p>
-              <p className='text-xl mb-2'><span className='text-red-600 font-semibold'>Number in stock:</span> {movie.numberInStock}</p>
-              <p className='text-xl mb-2'><span className='text-red-600 font-semibold'>Daily Rental Rate:</span> {movie.dailyRentalRate}</p>
+    <div className='fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center'>
+      <div className='bg-[#313131] max-w-full max-h-full overflow-y-auto rounded-2xl'>
+        {movie ? (
+          <div className='flex flex-col md:flex-row md:items-center w-full px-6 md:px-10 py-10'>
+            <img className='w-full md:w-[600px] h-[500px] object-cover rounded-3xl shadow-xl mb-6 md:mb-0' src={movie.url} alt="" />
+            <div className='flex flex-col md:ml-10 text-white'>
+              <h1 className='text-3xl md:text-5xl text-gray-300 font-semibold font-mono mb-4'>{movie.title}</h1>
+              <div className='font-mono mb-5'>
+                <p className='text-xl mb-2'><span className='text-red-600 font-semibold'>Genre:</span> {movie.genre.name}</p>
+                <p className='text-xl mb-2'><span className='text-red-600 font-semibold'>Year:</span> {movie.year}</p>
+                <p className='text-xl mb-2'><span className='text-red-600 font-semibold'>Rating:</span> {movie.starRating} {setStar()}</p>
+                <p className='text-xl mb-2'><span className='text-red-600 font-semibold'>Description:</span> <br />Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse cum obcaecati nobis reprehenderit saepe fugit ipsam doloribus sed illum. Totam voluptatem dignissimos alias repellat!</p>
+                <p className='text-xl mb-2'><span className='text-red-600 font-semibold'>Number in stock:</span> {movie.numberInStock}</p>
+                <p className='text-xl mb-2'><span className='text-red-600 font-semibold'>Daily Rental Rate:</span> {movie.dailyRentalRate}</p>
+              </div>
+              <div className='w-full flex justify-center items-center'>
+                <button
+                  onClick={handleRent}
+                  className='flex justify-center items-center h-[60px] w-[200px] bg-red-700 rounded-lg active:scale-95 hover:shadow-xl hover:bg-red-900'
+                >
+                  {
+                    !rented ? (
+                      <>
+                        <span className='text-2xl mr-2 font-semibold font-mono'>Rent Now</span>
+                        <BiCameraMovie size='40px' />
+                      </>
+                    ) : (
+                      <>
+                        <span className='text-2xl mr-2 font-semibold font-mono'>Rented</span>
+                        <SiTicktick size='40px' />
+                      </>
+                    )
+                  }
 
-            </div>
-            <div className='w-full flex flex-col justify-center items-center'>
-              <button 
-                onClick={handleRent}
-                className='flex justify-center items-center h-[60px] w-[200px] bg-red-700
-                rounded-lg active:scale-95 hover:shadow-xl hover:bg-red-900'
-              >
-              {
-                !rented?(
-                  <>
-                    <span className='text-2xl mr-2 font-semibold font-mono'>Rent Now</span>
-                    <BiCameraMovie size='40px' />
-                  </>
-                  ):
-                  (
-                  <>
-                    <span className='text-2xl mr-2 font-semibold font-mono'>Rented</span>
-                    <SiTicktick size='40px' />
-                  </>)
-              }
-                
-              </button>
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-
-      ) : (<div>Loading...</div>)}
-      <button
-        onClick={handleCross}
-        className='absolute top-[-50px] right-[-50px]'
-      >
-        <RxCross2 className='hover:text-red-700 text-white active:scale-95' style={{ fontSize: '50px' }} />
-
-      </button>
+        ) : (
+          <div className='flex justify-center items-center h-full'>
+            <Spinner />
+          </div>
+        )}
+        <button
+          onClick={handleCross}
+          className='absolute top-4 right-4 text-white'
+        >
+          <RxCross2 className='hover:text-red-700 text-white active:scale-95' style={{ fontSize: '30px' }} />
+        </button>
+      </div>
     </div>
   )
 }
